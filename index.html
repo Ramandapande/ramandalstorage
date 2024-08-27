@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="lemari-quote">
+        <div class="quote-box">
+            <p class="quote-text"> Jalani saja~ </p>
+            <p class="quote-author"> rapsyourbae </p>
+        </div>
+        <button class="tambahkan-quote"> another quote </button>
+    </div>
+</body>
+</html>
+<script>
+    const quotes = [
+        { text: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt" },
+        { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+        { text: "The purpose of our lives is to be happy.", author: "Dalai Lama" }
+    ];
+
+    const quoteText = document.querySelector('.quote-text');
+    const quoteAuthor = document.querySelector('.quote-author');
+    const newQuoteButton = document.querySelector('.tambahkan-quote');
+
+    function getRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        return quotes[randomIndex];
+    }
+
+    function displayNewQuote() {
+        const quote = getRandomQuote();
+        quoteText.textContent = `"${quote.text}"`;
+        quoteAuthor.textContent = `- ${quote.author}`;
+    }
+
+    newQuoteButton.addEventListener('click', displayNewQuote);
+
+    displayNewQuote();
+</script>
